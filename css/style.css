@@ -2,6 +2,22 @@
   text-transform: uppercase;
 }
 
+.icon-card{
+  padding: 50px;
+}
+
+.icon-card i{
+  display: flex;
+  justify-content: center;
+  font-size: 5rem;
+}
+
+.icon-card p{
+  display: flex;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
 .orange{
   color: orange;
 }
