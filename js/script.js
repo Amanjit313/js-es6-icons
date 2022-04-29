@@ -113,12 +113,7 @@ const icons = [
 	}
 ];
 
-for (let i in icons){
-  const elements = icons[i];
-  console.log(elements.name);
-  console.log("-----------------");
-}
-
+// Stampo le mie icone
 const iconContainer = document.querySelector(".container");
 stampaIcon();
 
@@ -134,11 +129,11 @@ function stampaIcons(singolIcon){
 
   let divStampa = iconContainer.innerHTML;
 
-  const {name, prefix} = singolIcon;
+  const {name, prefix, color} = singolIcon;
 
   divStampa += `
 	<div class="icon-card">
-		<i class="fa-solid ${prefix + name}"></i>
+		<i class="fa-solid ${prefix + name} ${color}"></i>
 		<p>${name}</p>
 	</div>
   `;
