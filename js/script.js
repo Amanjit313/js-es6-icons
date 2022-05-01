@@ -115,11 +115,11 @@ const icons = [
 
 // Stampo le mie icone
 const iconContainer = document.querySelector(".container");
-stampaIcon();
+stampaIcon(icons);
 
-function stampaIcon(){
-
-  for(let singolIcon of icons){
+function stampaIcon(arr){
+	iconContainer.innerHTML = "";
+  for(let singolIcon of arr){
     stampaIcons(singolIcon)
   }
 
@@ -128,9 +128,8 @@ function stampaIcon(){
 function stampaIcons(singolIcon){
 
   let divStampa = iconContainer.innerHTML;
-
   const {name, prefix, color} = singolIcon;
-
+	
   divStampa += `
 	<div class="icon-card">
 		<i class="fa-solid ${prefix + name} ${color}"></i>
@@ -139,4 +138,24 @@ function stampaIcons(singolIcon){
   `;
 
   iconContainer.innerHTML = divStampa;
+}
+
+// Uso il filter per differenziare i tipi per il select creando 3 const differenti
+const animal = icons.filter( (el) => el.type === "animal");
+const vegetable = icons.filter( (el) => el.type === "vegetable");
+const user = icons.filter( (el) => el.type === "user");
+
+console.log(animal);
+console.log(vegetable);
+console.log(user);
+
+const main = document.querySelector("main");
+document.getElementById("vai").addEventListener("click", play);
+
+function play(){
+  const typeSelect = document.getElementById("type-select").value;
+  console.log(typeSelect);
+  const arrayTot = [icons,animal,vegetable,user];
+  const arraySelect = arrayTot[typeSelect];
+	stampaIcon(arraySelect);
 }
